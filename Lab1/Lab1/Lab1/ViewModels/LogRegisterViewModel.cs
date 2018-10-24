@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lab1.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
@@ -53,11 +54,11 @@ namespace Lab1.ViewModels
         {
             try
             {
-
+                throw new Exception();
             }
             catch (Exception ex)
             {
-                
+                MessageHelper.ControlError(ex);
             }
             
         }

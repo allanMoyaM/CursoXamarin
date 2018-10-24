@@ -8,7 +8,7 @@
             <!-- Place new controls here -->
             <Label Text="{StaticResource lblwelcome}" FontSize="20" FontAttributes="Bold"
            HorizontalOptions="Start"
-           VerticalOptions="CenterAndExpand" />
+           VerticalOptions="StartAndExpand" />
             <Editor HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" TextChanged="Entry_TextChanged"/>
 
             <Button Text="{StaticResource btnInsertLog}" Command="{Binding InsertLogCommand}" 

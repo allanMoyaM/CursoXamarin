@@ -6,12 +6,13 @@
     <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20">
             <!-- Place new controls here -->
-            <Label Text="{StaticResource lblwelcome}" 
-           HorizontalOptions="Center"
+            <Label Text="{StaticResource lblwelcome}" FontSize="20" FontAttributes="Bold"
+           HorizontalOptions="Start"
            VerticalOptions="CenterAndExpand" />
-            <Entry Placeholder="" HorizontalOptions="FillAndExpand" VerticalOptions="End" TextChanged="Entry_TextChanged"/>
+            <Editor HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" TextChanged="Entry_TextChanged"/>
 
-            <Button Text="{StaticResource btnInsertLog}" Command="{Binding InsertLogCommand}"/>
+            <Button Text="{StaticResource btnInsertLog}" Command="{Binding InsertLogCommand}" 
+                    CornerRadius="25" BackgroundColor="White" BorderWidth="2" BorderColor="Blue" TextColor="Blue"/>
         </StackLayout>
     </ScrollView>
     

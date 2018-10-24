@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace Lab1.ViewModels
 {
@@ -20,7 +22,8 @@ namespace Lab1.ViewModels
         private static LogRegisterViewModel instance;
         private LogRegisterViewModel()
         {
-
+            initCommands();
+            initClass();
         }
 
         public static LogRegisterViewModel GetInstance(bool refresh = false)
@@ -35,8 +38,34 @@ namespace Lab1.ViewModels
 
         #region Commands
 
+        public ICommand InsertLogCommand { get; private set; }
 
+        #endregion
 
+        #region private Methods
+
+        private void initCommands()
+        {
+            InsertLogCommand = new Command(InsertLog);
+        }
+
+        private void InsertLog(object obj)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                
+            }
+            
+        }
+
+        private void initClass()
+        {
+
+        }
         #endregion
     }
 }

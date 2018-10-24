@@ -6,6 +6,7 @@
         <ResourceDictionary>
             <x:String x:Key="lblwelcome">Write a message</x:String>
             <x:String x:Key="btnInsertLog">Insert</x:String>
+            <x:String x:Key="Error">Ha ocurrido un error...</x:String>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

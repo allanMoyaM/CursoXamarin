@@ -3,6 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lab1.App">
     <Application.Resources>
-
+        <ResourceDictionary>
+            <x:String x:Key="lblwelcome">Write a message</x:String>
+            <x:String x:Key="btnInsertLog">Insert</x:String>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

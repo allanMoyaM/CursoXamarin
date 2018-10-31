@@ -1,4 +1,5 @@
-﻿using Lab1.Utils;
+﻿using Lab1.Models;
+using Lab1.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,6 +38,35 @@ namespace Lab1.ViewModels
         }
         #endregion
 
+        #region Properties
+
+        private string _message;
+
+        public string Message
+        {
+            set
+            {
+                _message = value;
+                OnPropertyChanged(nameof(Message));
+            }
+            get => _message;
+        }
+
+        private bool _isBusy;
+
+        public bool IsBusy
+        {
+            set
+            {
+                _isBusy = value;
+                OnPropertyChanged(nameof(IsBusy));
+            }
+
+            get => _isBusy;
+        }
+
+        #endregion
+
         #region Commands
 
         public ICommand InsertLogCommand { get; private set; }
@@ -50,11 +80,22 @@ namespace Lab1.ViewModels
             InsertLogCommand = new Command(InsertLog);
         }
 
-        private void InsertLog(object obj)
+        private async void InsertLog(object obj)
         {
             try
             {
-                throw new Exception();
+                IsBusy = true;
+                LogRequest req = await LogRequest.InsertLogAsync(Message);
+
+                if (!req.IsSuccessful)
+                {
+                    IsBusy = false;
+                    MessageHelper.ControlError(req.Errors);
+                    return;
+                }
+
+                Message = string.Empty;
+                IsBusy = false;
             }
             catch (Exception ex)
             {
@@ -65,7 +106,7 @@ namespace Lab1.ViewModels
 
         private void initClass()
         {
-
+            //Message = "Hola";
         }
         #endregion
     }

@@ -1,20 +1,22 @@
-﻿+<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Lab1"
              x:Class="Lab1.Views.MainPage">
+    <Grid>
     <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20">
-            <!-- Place new controls here -->
-            <Label Text="{StaticResource lblwelcome}" FontSize="20" FontAttributes="Bold"
-           HorizontalOptions="Start"
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20">
+                <!-- Place new controls here -->
+                <Label Text="{StaticResource lblwelcome}" FontSize="20" FontAttributes="Bold"
+           HorizontalOptions="Center"
            VerticalOptions="StartAndExpand" />
-            <Editor HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" TextChanged="Entry_TextChanged"/>
-
-            <Button Text="{StaticResource btnInsertLog}" Command="{Binding InsertLogCommand}" 
+                <Editor Text="{Binding Message}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" TextChanged="Entry_TextChanged"/>
+                <Button Text="{StaticResource btnInsertLog}" Command="{Binding InsertLogCommand}" 
                     CornerRadius="25" BackgroundColor="White" BorderWidth="2" BorderColor="Blue" TextColor="Blue"/>
-        </StackLayout>
-    </ScrollView>
-    
-
+            </StackLayout>
+        </ScrollView>
+        <ContentView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" IsVisible="{Binding IsBusy}">
+            <ActivityIndicator WidthRequest="200" HeightRequest="200" IsRunning="{Binding IsBusy}" Color="Red"/>
+        </ContentView>
+    </Grid>
 </ContentPage>

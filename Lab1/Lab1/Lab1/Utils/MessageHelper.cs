@@ -21,5 +21,10 @@ namespace Lab1.Utils
         {
             errors?.ForEach(x => UserDialogs.Instance.Toast(x.Message));
         }
+
+        public static void Toast(string v)
+        {
+            UserDialogs.Instance.Toast(v);
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Lab1.Models;
 using Lab1.Utils;
+using Lab1.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,6 +40,8 @@ namespace Lab1.ViewModels
         #endregion
 
         #region Properties
+        public EnumToolbar Parameter1 => EnumToolbar.Option1;
+        public EnumToolbar Parameter2 => EnumToolbar.Option2;
 
         private string _message;
 
@@ -71,6 +74,10 @@ namespace Lab1.ViewModels
 
         public ICommand InsertLogCommand { get; private set; }
 
+        public ICommand PressToolbarItemsCommands { get; private set; }
+
+        public ICommand TapLabelCommand { get; private set; }
+
         #endregion
 
         #region private Methods
@@ -78,6 +85,18 @@ namespace Lab1.ViewModels
         private void initCommands()
         {
             InsertLogCommand = new Command(InsertLog);
+            PressToolbarItemsCommands = new Command<EnumToolbar>(PressToolbarItems);
+            TapLabelCommand = new Command(TapLabel);
+        }
+
+        private void TapLabel()
+        {
+            ((NavigationPage)(App.Current.MainPage)).PopAsync(true);
+        }
+
+        private void PressToolbarItems(EnumToolbar obj)
+        {
+            MessageHelper.Toast(obj.ToString());
         }
 
         private async void InsertLog(object obj)
@@ -96,6 +115,8 @@ namespace Lab1.ViewModels
 
                 Message = string.Empty;
                 IsBusy = false;
+
+                await ((NavigationPage)(App.Current.MainPage)).PushAsync(new ResultPage());
             }
             catch (Exception ex)
             {
@@ -109,5 +130,11 @@ namespace Lab1.ViewModels
             //Message = "Hola";
         }
         #endregion
+    }
+
+    public enum EnumToolbar
+    {
+        Option1 = 1,
+        Option2 = 2,
     }
 }

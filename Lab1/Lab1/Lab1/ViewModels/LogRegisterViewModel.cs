@@ -77,6 +77,7 @@ namespace Lab1.ViewModels
         public ICommand PressToolbarItemsCommands { get; private set; }
 
         public ICommand TapLabelCommand { get; private set; }
+        
 
         #endregion
 

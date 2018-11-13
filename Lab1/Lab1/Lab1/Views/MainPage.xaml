@@ -12,9 +12,12 @@
     <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20">
                 <!-- Place new controls here -->
-                <Label Text="{StaticResource lblwelcome}" FontSize="20" FontAttributes="Bold"
-           HorizontalOptions="Center"
-           VerticalOptions="StartAndExpand" />
+                <Label Text="{StaticResource lblwelcome}" FontSize="20" FontAttributes="Bold" 
+                   HorizontalOptions="Center" x:Name="lblWelcome"
+                   VerticalOptions="StartAndExpand" 
+                       />
+                <Button Text="Change color!" Clicked="Button_ChangeColor_Clicked"
+                    CornerRadius="25" BackgroundColor="Red" BorderWidth="2" BorderColor="Red" TextColor="White"/>
                 <Editor Text="{Binding Message}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" TextChanged="Entry_TextChanged"/>
                 <Button Text="{StaticResource btnInsertLog}" Command="{Binding InsertLogCommand}" 
                     CornerRadius="25" BackgroundColor="White" BorderWidth="2" BorderColor="Blue" TextColor="Blue"/>

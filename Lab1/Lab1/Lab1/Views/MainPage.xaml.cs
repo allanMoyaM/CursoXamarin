@@ -21,5 +21,15 @@ namespace Lab1.Views
         {
 
         }
+
+        async void Button_ChangeColor_Clicked(object sender, EventArgs e)
+        {
+            await Task.Delay(5000);
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                lblWelcome.TextColor = Color.Red;
+            });
+            
+        }
     }
 }

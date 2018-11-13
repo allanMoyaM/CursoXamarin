@@ -32,7 +32,6 @@ namespace Lab1.Models
                 string ans = await response.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<LogRequest>(ans);
 
-
             }
         }
     }

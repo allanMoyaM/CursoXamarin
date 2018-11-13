@@ -12,7 +12,7 @@ namespace Lab1
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new MasterDetail();
         }
 
         protected override void OnStart()

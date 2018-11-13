@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab1.Views.MasterDetailPageMaster"
+             x:Name="masterDetailPageMaster"
+             Title="Master">
+  <StackLayout>
+    <ListView x:Name="MenuItemsListView"
+              SeparatorVisibility="None"
+              HasUnevenRows="true"
+              ItemsSource="{Binding lstItemsMenu}">
+      <ListView.Header>
+        <Grid BackgroundColor="#03A9F4">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+          </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="80"/>
+          </Grid.RowDefinitions>
+          <Label
+              Grid.Column="1"
+              Grid.Row="2"
+              Text="AppName"
+              Style="{DynamicResource SubtitleStyle}"/>
+        </Grid>
+      </ListView.Header>
+      <ListView.ItemTemplate>
+        <DataTemplate>
+                    <TextCell Text="{Binding Title}" Detail="{Binding Detail}" Command="{Binding Source={x:Reference masterDetailPageMaster},Path=BindingContext.GoToViewCommand}" CommandParameter="{Binding ClassName}" TextColor="Black"/>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
+</ContentPage>
